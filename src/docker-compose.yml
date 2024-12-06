@@ -1,0 +1,39 @@
+version: '3'
+services:
+  database:
+    image: postgres:15.7
+    ports:
+        - 5432:5432
+    volumes:
+      - pgdata15:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: '1pi.P@ssword'
+      POSTGRES_DB: 'ipidb'
+  web:
+    image: ghcr.io/onetree-com/india-policy-insights-frontend:release
+    ports:
+      - 80:80
+  api:
+    image: ghcr.io/onetree-com/india-policy-insights-backend:release
+    ports:
+      - 8081:80
+    volumes:
+      - ./uploads:/directus/uploads
+      - ./snapshots:/directus/snapshots
+    depends_on:
+      - database
+    environment:
+      ConnectionStrings__PgsqlConnectionString: 'User ID=postgres;Password=1pi.P@ssword;Host=database;Port=5432;Database=ipidb;'
+
+  tiles:
+    image: joaquinkot/tileserver:latest
+    ports:
+      - 8080:8080
+    user: root
+    volumes:
+      - tiles:/data
+      
+volumes:
+  pgdata15:
+  tiles:  

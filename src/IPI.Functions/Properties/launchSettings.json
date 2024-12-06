@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "IPI.Functions": {
+      "commandName": "Project",
+      "nativeDebugging": false
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
+      "httpPort": 33513,
+      "useSSL": false
+    }
+  }
+}

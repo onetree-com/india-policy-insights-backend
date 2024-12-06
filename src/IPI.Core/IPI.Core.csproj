@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\IPI.Dto\IPI.Dto.csproj" />
+    <ProjectReference Include="..\IPI.SharedKernel\IPI.SharedKernel.csproj" />
+  </ItemGroup>
+
+</Project>
