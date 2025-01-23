@@ -27,7 +27,10 @@ India Policy Insights is a .NET Core 3.1-based project that leverages Azure Func
 - **Docker Compose**
 - **Azure Cloud Services** (Optional)
 
-## Getting Started
+## Setup instructions 
+- [Setup](setup.md)
+
+## Quick start
 
 ### Prerequisites
 Before running the application, ensure you have the following installed on your system:
