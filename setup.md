@@ -79,13 +79,17 @@ This will start all the required services defined in the `docker-compose.yml` fi
 
 ## Troubleshooting
 
-- If a container fails to start, check its logs:
+- **If a container fails to start, check its logs:**
   ```bash
   docker logs <container-name>
   ```
-- Ensure the volumes are correctly mounted and accessible.
-- If the map is not displayed verify the Tileserver at http://localhost:8080, the different geographies should be included, in case there aren't verify the .mbtiles are copied to the mounted volume and are accesible
-- If no data is displayed ensure the dump was correctly restored and the database contains all the tables and data required
+- **If requests from the frontend to the API are blocked:** Configure CORS in the docker host or add the CORS headers in default.conf file in src folder
+- **Database connection failures:** Ensure that the connection string defined in environment variable **ConnectionStrings__PgsqlConnectionString** has the correct values and that the database is reachable from within docker
+- **Tiles not rendering:** Ensure the volumes are correctly mounted and accessible, if the map is not displayed verify the Tileserver at http://localhost:8080, the different geographies should be included, in case there aren't verify the .mbtiles are copied to the mounted volume and are accesible
+- **No indicators data:** If no data is displayed ensure the dump was correctly restored and the database contains all the tables and data required
+- **Unhandled exceptions:** If API crashes or returns 500 errors check the logs with the docker logs command using the API container name
+- **Slow performance:** A low performance would be mostly caused by the database, review CPU and Memory usage of the PostgreSQL instance and increase it's resources if possible
+
 
 ---
 
